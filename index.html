@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Blood Donation - Nepal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="add.js"></script>
+
+
+    <style>
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section animation */
+        .section-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .section-animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button ripple effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple:after {
+            content: "";
+            position: absolute;
+            background: rgba(255,255,255,0.6);
+            border-radius: 50%;
+            transform: scale(0);
+            opacity: 1;
+            transition: transform 0.6s, opacity 1s;
+        }
+
+        .ripple:active:after {
+            transform: scale(4);
+            opacity: 0;
+            transition: 0s;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-red-100 via-pink-100 to-purple-100">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white p-4 flex justify-between items-center shadow-xl">
+
+    <h1 class="text-2xl font-bold hover:text-yellow-300 hover:scale-110 transition duration-300 cursor-pointer">
+        🇳🇵 Blood Finder Nepal
+    </h1>
+
+    <div class="space-x-6 text-lg">
+        <a href="#service" class="hover:text-yellow-300 hover:underline transition duration-300">Service</a>
+        <a href="#register" class="hover:text-yellow-300 hover:underline transition duration-300">Register</a>
+        <a href="#search" class="hover:text-yellow-300 hover:underline transition duration-300">Search</a>
+        <a href="#contact" class="hover:text-yellow-300 hover:underline transition duration-300">Contact</a>
+    </div>
+</nav>
+
+ <!-- IMAGE -->
+  <div class="flex justify-center">
+  <img src="/assets/blood donate png1.jpg"
+       class="w-[400px] h-[180px] 
+              object-contain 
+              rounded-2xl 
+              shadow-2xl 
+              bg-white
+              hover:scale-105 transition duration-300" />
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="text-center py-14">
+    <h2 class="text-4xl font-extrabold text-red-700 hover:text-purple-600 transition duration-500">
+        Smart Blood Donation System
+    </h2>
+    <p class="mt-4 text-gray-700 text-lg hover:text-red-500 transition duration-500">
+        Connecting All 77 Districts of Nepal 
+    </p>
+</section>
+
+<div class="max-w-6xl mx-auto p-6">
+
+<!-- ================= SERVICE SECTION ================= -->
+<section id="service" class="section-animate bg-white/80 p-6 rounded-xl shadow-xl mb-10">
+
+    <h3 class="text-2xl font-bold text-purple-600 mb-6 hover:text-red-600 transition duration-300">
+        Our Services
+    </h3>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="p-5 bg-gradient-to-r from-red-400 to-pink-400 text-white rounded-xl hover:scale-105 hover:shadow-2xl transition duration-300">
+             Find Blood Donor
+        </div>
+
+        <div class="p-5 bg-gradient-to-r from-blue-400 to-purple-400 text-white rounded-xl hover:scale-105 hover:shadow-2xl transition duration-300">
+             Emergency Request
+        </div>
+
+        <div class="p-5 bg-gradient-to-r from-green-400 to-teal-400 text-white rounded-xl hover:scale-105 hover:shadow-2xl transition duration-300">
+             District Based Search
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= REGISTER ================= -->
+<section id="register" class="section-animate bg-white/80 p-6 rounded-xl shadow-xl mb-10">
+
+    <h3 class="text-2xl font-bold text-red-600 mb-4 hover:text-purple-600 transition duration-300">
+        Register as Donor
+    </h3>
+
+    <!-- First Name -->
+<input id="firstName" type="text" placeholder="First Name"
+class="border p-3 w-full mb-3 rounded-lg focus:ring-2 focus:ring-red-400 hover:border-purple-500 transition duration-300"required>
+
+
+<!-- Middle Name -->
+<input id="middleName" type="text" placeholder="Middle Name (Optional)"
+    class="border p-3 w-full mb-3 rounded-lg focus:ring-2 focus:ring-red-400 hover:border-purple-500 transition duration-300"Optional>
+
+<!-- Last Name -->
+<input id="lastName" type="text" placeholder="Last Name"
+    class="border p-3 w-full mb-3 rounded-lg focus:ring-2 focus:ring-red-400 hover:border-purple-500 transition duration-300"required>
+
+    <input id="age" type="text" placeholder="Enter Your Age"
+    class="border p-3 w-full mb-3 rounded-lg focus:ring-2 focus:ring-red-400 hover:border-purple-500 transition duration-300"required>
+
+        <input id="phone" type="text" placeholder="Enter Phone Number"
+        class="border p-3 w-full mb-3 rounded-lg focus:ring-2 focus:ring-red-400 hover:border-purple-500 transition duration-300"required>
+        
+    <select id="bloodGroup"
+        class="border p-3 w-full mb-3 rounded-lg focus:ring-2 focus:ring-red-400 hover:border-purple-500 transition duration-300"required>
+        <option value="">Select Blood Group</option>
+        <option>A+</option><option>A-</option>
+        <option>B+</option><option>B-</option>
+        <option>O+</option><option>O-</option>
+        <option>AB+</option><option>AB-</option>
+    </select>
+
+    <select id="district"
+        class="border p-3 w-full mb-3 rounded-lg focus:ring-2 focus:ring-red-400 hover:border-purple-500 transition duration-300">
+        <option value="">Select District</option>
+    </select>
+
+    <button onclick="addDonor()"
+        class="ripple bg-gradient-to-r from-red-600 to-purple-600 text-white px-4 py-3 rounded-lg w-full hover:scale-105 hover:shadow-xl transition duration-300">
+        Register Donor
+    </button>
+</section>
+
+<!-- ================= SEARCH ================= -->
+<section id="search" class="section-animate bg-white/80 p-6 rounded-xl shadow-xl mb-10">
+
+    <h3 class="text-2xl font-bold text-blue-600 mb-4 hover:text-red-600 transition duration-300">
+        Search Donor
+    </h3>
+
+    <select id="searchBlood"
+        class="border p-3 w-full mb-3 rounded-lg hover:border-red-500 transition duration-300">
+        <option value="">Filter by Blood Group</option>
+        <option>A+</option><option>A-</option>
+        <option>B+</option><option>B-</option>
+        <option>O+</option><option>O-</option>
+        <option>AB+</option><option>AB-</option>
+    </select>
+
+    <select id="searchDistrict"
+        class="border p-3 w-full mb-3 rounded-lg hover:border-red-500 transition duration-300">
+        <option value="">Filter by District</option>
+    </select>
+
+    <button onclick="searchDonor()"
+        class="ripple bg-gradient-to-r from-blue-600 to-pink-600 text-white px-4 py-3 rounded-lg w-full hover:scale-105 hover:shadow-xl transition duration-300">
+        Search
+    </button>
+</section>
+
+<!-- ================= DONOR LIST ================= -->
+<section class="section-animate">
+    <h3 class="text-2xl font-bold text-gray-700 mb-4 hover:text-red-600 transition duration-300">
+        Available Donors
+    </h3>
+
+    <div id="donorList" class="grid md:grid-cols-3 gap-6"></div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section-animate bg-gradient-to-r from-green-400 to-teal-500 text-white p-6 rounded-xl shadow-xl mt-12">
+
+    <h3 class="text-2xl font-bold mb-4 hover:text-yellow-200 transition duration-300">
+        Emergency Contact
+    </h3>
+
+    <p class="hover:text-yellow-200 transition duration-300"> Ambulance: 102</p>
+    <p class="hover:text-yellow-200 transition duration-300"> Red Cross: 01-4270650</p>
+    <p class="hover:text-yellow-200 transition duration-300"> Developer: Prayash Kunwar</p>
+
+</section>
+
+</div>
+
+<footer class="bg-gradient-to-r from-red-600 to-purple-600 text-white text-center p-4 mt-12">
+    © 2026 Smart Blood Donation System | Nepal
+</footer>
+
+<script>
+
+// 77 districts
+const districts = ["Kathmandu","Lalitpur","Bhaktapur","Kaski","Chitwan","Jhapa","Morang","Rupandehi","Dang","Kailali","Sunsari","Banke","Bara","Parsa","Dhanusha","Saptari","Siraha","Udayapur","Gorkha","Lamjung","Tanahun","Syangja","Parbat","Baglung","Myagdi","Mustang","Manang","Dolpa","Humla","Jumla","Kalikot","Mugu","Surkhet","Dailekh","Jajarkot","Rukum","Salyan","Rolpa","Pyuthan","Kapilvastu","Arghakhanchi","Palpa","Nawalpur","Nuwakot","Dhading","Rasuwa","Sindhupalchok","Dolakha","Ramechhap","Sindhuli","Makwanpur","Kavre","Okhaldhunga","Khotang","Solukhumbu","Bhojpur","Dhankuta","Terhathum","Taplejung","Panchthar","Ilam","Achham","Bajura","Bajhang","Doti","Dadeldhura","Darchula","Baitadi","Kanchanpur","Mahottari","Sarlahi","Rautahat","Western Rukum","Eastern Rukum","Parasi","Gulmi"];
+
+// Populate districts
+districts.forEach(d=>{
+    district.innerHTML+=`<option>${d}</option>`;
+    searchDistrict.innerHTML+=`<option>${d}</option>`;
+});
+
+// Scroll animation
+const sections=document.querySelectorAll(".section-animate");
+window.addEventListener("scroll",()=>{
+    sections.forEach(sec=>{
+        const pos=sec.getBoundingClientRect().top;
+        if(pos<window.innerHeight-100){
+            sec.classList.add("active");
+        }
+    });
+});
+
+// Donor Class
+class Donor{
+    constructor(name,blood,district){
+        this.id=Date.now();
+        this.firstName=firstName;
+        this.middleName=middleName;
+        this.lastName=lastName;
+        this.age=age;
+        this.blood=blood;
+        this.district=district;
+    }
+}
+
+function getDonors(){return JSON.parse(localStorage.getItem("donors"))||[];}
+function saveDonors(d){localStorage.setItem("donors",JSON.stringify(d));}
+
+function addDonor(){
+    const firstName=document.getElementById("firstName").value;
+    const middleName=document.getElementById("middleName").value;
+    const lastName=document.getElementById("lastName").value;
+    const age=document.getElementById("age").value;
+    const blood=document.getElementById("bloodGroup").value;
+    const dist=document.getElementById("district").value;
+    if(!firstName|| !middleName|| !lastName|| !age|| !blood||!dist){alert("Fill all fields");return;}
+    const donor=new Donor(firstName, middleName, lastName, age, blood, dist);
+    const donors=getDonors();
+    donors.push(donor);
+    saveDonors(donors);
+    displayDonors();
+}
+
+// Display Donors
+function displayDonors(){
+    donorList.innerHTML="";
+    getDonors().forEach(d=>{
+        donorList.innerHTML+=`
+        <div class="bg-white p-5 rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl transition duration-300">
+            <h4 class="text-xl font-bold text-red-600"re>${d.firstName}</h4>
+             <h4 class="text-xl font-bold text-red-600">${d.middleName}</h4>
+              <h4 class="text-xl font-bold text-red-600">${d.lastName}</h4>
+              
+            <p>Age: ${d.age}</p>
+            <p>Phone: ${d.phone}</p>
+            <p>Blood: ${d.blood}</p>
+            <p>District: ${d.district}</p>
+
+            <div class="flex gap-3 mt-3">
+                <button onclick="editDonor(${d.id})"
+                    class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
+                    Edit
+                </button>
+
+                <button onclick="deleteDonor(${d.id})"
+                    class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">
+                    Delete
+                </button>
+            </div>
+        </div>`;
+    });
+}
+
+// Delete
+function deleteDonor(id){
+    const donors=getDonors().filter(d=>d.id!==id);
+    saveDonors(donors);
+    displayDonors();
+}
+
+// Edit
+function editDonor(id){
+    const donor=getDonors().find(d=>d.id===id);
+    document.getElementById("firstName").value=donor.firstName;
+    document.getElementById("middleName").value=donor.middleName;
+    document.getElementById("lastName").value=donor.lastName;
+    document.getElementById("age").value=donor.age;
+    document.getElementById("phone").value=donor.phone;
+    document.getElementById("bloodGroup").value=donor.blood;
+    document.getElementById("district").value=donor.district;
+    editId=id;
+}
+
+
+function searchDonor(){
+    const blood=searchBlood.value;
+    const dist=searchDistrict.value;
+    donorList.innerHTML="";
+    getDonors().filter(d=>
+        (blood===""||d.blood===blood)&&
+        (dist===""||d.district===dist)
+    ).forEach(d=>{
+        donorList.innerHTML+=`
+        <div class="bg-white p-5 rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl transition duration-300">
+            <h4 class="text-xl font-bold text-red-600">${d.firstName}</h4>
+            <h4 class="text-xl font-bold text-red-600">${d.middleName}</h4>
+            <h4 class="text-xl font-bold text-red-600">${d.lastName}</h4>
+            <p>Age: ${d.age}</p>
+            <p>Phone: ${d.phone}</p>
+            <p>Blood: ${d.blood}</p>
+            <p>District: ${d.district}</p>
+        </div>`;
+    });
+}
+
+displayDonors();
+
+</script>
+
+</body>
+</html>
